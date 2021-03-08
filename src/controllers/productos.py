@@ -55,4 +55,14 @@ def editar_producto(id):
 
     return redirect(url_for('productos'))
 
+@app.route('/productos/eliminar/<int:id>')
+def eliminar_producto(id):
+
+    productosModel= ProductosModel()
+
+    productosModel.eliminar(id)
+
+
+    return redirect(url_for('productos'))
+
     

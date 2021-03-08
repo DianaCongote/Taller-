@@ -21,6 +21,11 @@ class ProductosModel():
 
     def editar(self, id, nombre, descripcion, precio_venta, ganancia, precio_compra, estado):
         cursor = DB.cursor()
-        #editar
         cursor.execute(""" UPDATE productos SET nombre = ?, descripcion = ?, precio_venta = ?, ganancia = ?, precio_compra = ?, estado = ?  WHERE id = ?""",(nombre, descripcion, precio_venta, ganancia, precio_compra, estado, id,))
         cursor.close()
+
+    def eliminar(self, id):
+        cursor = DB.cursor()
+        cursor.execute("""DELETE FROM productos WHERE id = ? """,(id,))
+        cursor.close()
+
