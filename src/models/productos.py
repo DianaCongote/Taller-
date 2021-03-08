@@ -18,3 +18,9 @@ class ProductosModel():
         cursor.execute('insert into productos(nombre, descripcion, precio_venta, ganancia, precio_compra, estado) values(?,?,?,?,?,?)', (nombre, descripcion, precio_venta, ganancia, precio_compra, estado,))
 
         cursor.close()
+
+    def editar(self, id, nombre, descripcion, precio_venta, ganancia, precio_compra, estado):
+        cursor = DB.cursor()
+        #editar
+        cursor.execute(""" UPDATE productos SET nombre = ?, descripcion = ?, precio_venta = ?, ganancia = ?, precio_compra = ?, estado = ?  WHERE id = ?""",(nombre, descripcion, precio_venta, ganancia, precio_compra, estado, id,))
+        cursor.close()
