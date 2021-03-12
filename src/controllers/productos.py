@@ -65,4 +65,5 @@ def eliminar_producto(id):
 
     return redirect(url_for('productos'))
 
-    
+
+   
