@@ -4,36 +4,17 @@ import json
 import src.config.globals as globals
 
 CONEXION_PATH = path.abspath('src/config/conexion.json')
-SQL_PATH = path.abspath('db.sql')
 
-def instalarDB():
-    file_sql = open(SQL_PATH, 'r')
-    sql = file_sql.read()
 
-    cursor = DB.cursor()
+def mostrarbd():
+    conn = mysql.connector.connect (user='usuario', password='contraseña', host='host', port='puerto' )
 
-    sqlCommands = sql.split(';')
-    
-    for command in sqlCommands:
-        try:
-            if command.strip() != '':
-                cursor.execute(command)
-        except:
-            print ("Saltando comando")
+    cursor = conn.cursor()
 
-    cursor.close()
+    databases = ("show databases")
 
-def createDB():
-    if path.exists(CONEXION_PATH):
-        file_conexion = open(CONEXION_PATH, 'r')
+    cursor.execute(databases)
 
-        config = json.loads(file_conexion.read())
-
-        globals.DB = mariadb.connect(**config)
-        globals.DB.autocommit = True
-
-    else:
-        globals.DB = False
-
-createDB()
+    for (databases) in cursor:
+        print databases[0]
 

@@ -1,41 +1,6 @@
-{% extends 'layouts/base.html' %}
+{% extends 'layouts/base.html' %} {% block titulo %} Inicio {% endblock %} {% block contenido %}
+<h1>Listado de base de datos</h1>
 
-{% block titulo %}
-    Inicio
-{% endblock %}
-
-{% block contenido %}
-<h1>Detalles de conexion</h1>
-<form method="POST">
-    <div class="mb-3">
-        <label for="nombrebd">Nombre de la base de datos</label>
-        <input type="text" required class="form-control" id="nombrebd" name="nombrebd">
-    </div>
-    <div class="mb-3">
-        <label for="puerto">Puerto</label>
-        <input type="number" required class="puerto" id="puerto" name="puerto">
-    </div>
-
-    <div class="mb-3">
-        <label for="nomusuario">nombre de usuario</label>
-        <input type="text" required class="form-control" id="nomusuario" name="nomusuario">
-    </div>
-    
-    <div class="mb-3">
-        <label for="contrasena">contraseña</label>
-        <input type="password" class="form-control" id="contrasena" name="contrasena">
-    </div>
-
-    <div class="mb-3">
-        <label for="servidor">Servidor de la base de datos</label>
-        <input type="text" required class="form-control" id="servidor" name="servidor">
-    </div>
-
-    <button type="submit" class="btn btn-primary">Guardar</button>
-</form>
-
-
-
-
+<a href="{{ url_for('productos') }}">Productos</a>
 {% endblock %}
 
